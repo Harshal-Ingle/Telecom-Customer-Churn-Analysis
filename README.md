@@ -1,28 +1,71 @@
-# Telecom Customer Churn Analysis
+# Nashville Housing Data Cleaning with SQL
 
-## Objective
-This project analyzes a telecom dataset to identify the primary factors that lead to customer churn. The goal is to build a customer profile of those likely to churn and provide actionable recommendations for targeted retention strategies.
 
-## Dataset
-The dataset is the "Telco Customer Churn" dataset from Kaggle, containing demographic, account, and service information for thousands of customers.
+## Executive Summary
+This project focuses on the **critical process of data cleaning using SQL** on the **Nashville Housing Data** dataset.  
+The goal was to transform a **raw, messy dataset** into a **clean, structured, and usable format** ready for in-depth analysis.  
 
-## Tools & Libraries
-- Python
-- Pandas (Data Manipulation)
-- Matplotlib & Seaborn (Data Visualization)
-- Jupyter Notebook
+Through a series of **SQL queries**, common data issues such as **missing values, inconsistent formats, and duplicates** were resolved to ensure **data integrity and reliability**.  
+The final output is a **refined dataset** that can be used for **reporting and strategic decision-making** in the real estate market.
 
-## Key Findings
+---
 
-1.  **Contract is King:** Customers on month-to-month contracts have a churn rate several times higher than those on annual contracts.
-    *(Insert your Contract vs. Churn chart here)*
+## Business Problem
+In real-world data analysis, raw data is rarely clean.  
+**Inaccurate or inconsistent data** can lead to **flawed insights** and poor business decisions.  
 
-2.  **New Customers are Vulnerable:** The first 1-5 months are a critical period, with a large portion of churn occurring here.
-    *(Insert your Tenure vs. Churn histogram here)*
+This project addresses the fundamental **business problem of data quality**, demonstrating how to prepare a dataset for **reliable analysis**.  
+The objective is to create a **clean foundation** from which stakeholders can derive **accurate market insights** such as property value trends and sales patterns.
 
-3.  **Protective Services Matter:** Customers without add-ons like Online Security and Tech Support are far more likely to churn.
+---
+
+## Methodology
+1. **Data Inspection**  
+   - Identified missing addresses, duplicates, and inconsistent data types.  
+
+2. **Date Standardization**  
+   - Converted `SaleDate` into a consistent format for time-based analysis.  
+
+3. **Handling Missing Values**  
+   - Used **self-joins** on `ParcelID` to populate missing `PropertyAddress` values.  
+
+4. **Data Structuring**  
+   - Split combined address fields (`PropertyAddress`, `OwnerAddress`) into **Street, City, State** using functions like `SUBSTRING`, `CHARINDEX`, and `PARSENAME`.  
+
+5. **Data Standardization**  
+   - Unified the `SoldAsVacant` column values (e.g., Y/N → Yes/No) with a **CASE statement**.  
+
+6. **Duplicate Removal**  
+   - Applied **CTEs** with `ROW_NUMBER()` to identify and remove duplicate rows.  
+
+7. **Column Management**  
+   - Dropped unnecessary columns to streamline the dataset.  
+
+---
+
+## Skills Demonstrated
+- **SQL**: Advanced querying and transformation techniques.  
+- **Data Cleaning**: Handling missing, inconsistent, and duplicate data.  
+- **Database Management**: Structuring columns, tables, and data types.  
+- **Problem-Solving**: Real-world data quality challenges.  
+
+---
+
+## Results
+The cleaning process delivered a **fully transformed dataset**:  
+- All `PropertyAddress` nulls populated.  
+- Addresses neatly separated into **Street, City, State**.  
+- `SoldAsVacant` standardized to only **Yes/No**.  
+- Duplicate records eliminated.  
+- Redundant columns removed for efficiency.  
+
+The dataset is now **ready for analysis** and **business intelligence applications**.  
+
+---
 
 ## Business Recommendations
-- **Launch a "First-Year Loyalty Plan":** Offer a compelling discount for new month-to-month customers to upgrade to a 1-year contract.
-- **Bundle "Sticky" Services:** Proactively offer services like Online Security for free for the first 3 months to high-risk customers.
-- **Develop a Senior-Focused Plan:** Create and market a simplified, tailored plan for the high-churn senior citizen demographic.
+With the clean dataset, businesses can now explore:  
+- **Market Trend Analysis** → Property value and sales trends over time.  
+- **Geospatial Analysis** → Map-based insights on property sales in high-growth areas.  
+- **Predictive Modeling** → Use in ML models to forecast housing prices.  
+- **Strategic Planning** → Guide investments, acquisitions, and pricing strategies.
