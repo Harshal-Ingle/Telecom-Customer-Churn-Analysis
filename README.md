@@ -1,71 +1,62 @@
-# Nashville Housing Data Cleaning with SQL
+# Customer Churn Analysis  
 
-
-## Executive Summary
-This project focuses on the **critical process of data cleaning using SQL** on the **Nashville Housing Data** dataset.  
-The goal was to transform a **raw, messy dataset** into a **clean, structured, and usable format** ready for in-depth analysis.  
-
-Through a series of **SQL queries**, common data issues such as **missing values, inconsistent formats, and duplicates** were resolved to ensure **data integrity and reliability**.  
-The final output is a **refined dataset** that can be used for **reporting and strategic decision-making** in the real estate market.
+## Executive Summary  
+This project presents a comprehensive analysis of **customer churn for a telecom company**. The goal was to identify the key drivers of churn and segment customers for targeted retention campaigns. Using **Python** and popular data analysis libraries, the project uncovers insights into customer demographics, services, and contract types most susceptible to churning. These findings provide a **data-driven foundation** for strategies to reduce churn and improve customer retention.  
 
 ---
 
-## Business Problem
-In real-world data analysis, raw data is rarely clean.  
-**Inaccurate or inconsistent data** can lead to **flawed insights** and poor business decisions.  
-
-This project addresses the fundamental **business problem of data quality**, demonstrating how to prepare a dataset for **reliable analysis**.  
-The objective is to create a **clean foundation** from which stakeholders can derive **accurate market insights** such as property value trends and sales patterns.
+## Business Problem  
+Customer churn is a critical challenge for telecom companies as it directly impacts **revenue, growth, and customer lifetime value**. Without understanding why customers leave, companies risk losing valuable customers and competitive edge. This project addresses the problem by identifying the **root causes of churn** and suggesting actionable strategies for proactive intervention.  
 
 ---
 
-## Methodology
-1. **Data Inspection**  
-   - Identified missing addresses, duplicates, and inconsistent data types.  
+## Methodology  
+The analysis followed a structured approach using **Python**:  
 
-2. **Date Standardization**  
-   - Converted `SaleDate` into a consistent format for time-based analysis.  
+1. **Data Ingestion & Cleaning**  
+   - Loaded the dataset into Pandas DataFrame.  
+   - Dropped irrelevant columns (e.g., `customerID`).  
+   - Converted `TotalCharges` to numeric and imputed missing values.  
 
-3. **Handling Missing Values**  
-   - Used **self-joins** on `ParcelID` to populate missing `PropertyAddress` values.  
+2. **Data Preprocessing**  
+   - Converted `Churn` column from categorical (Yes/No) to numerical (1/0).  
 
-4. **Data Structuring**  
-   - Split combined address fields (`PropertyAddress`, `OwnerAddress`) into **Street, City, State** using functions like `SUBSTRING`, `CHARINDEX`, and `PARSENAME`.  
+3. **Exploratory Data Analysis (EDA)**  
+   - Analyzed churn rate across demographics, contract types, and services.  
+   - Explored relationships between customer behavior and churn.  
 
-5. **Data Standardization**  
-   - Unified the `SoldAsVacant` column values (e.g., Y/N → Yes/No) with a **CASE statement**.  
-
-6. **Duplicate Removal**  
-   - Applied **CTEs** with `ROW_NUMBER()` to identify and remove duplicate rows.  
-
-7. **Column Management**  
-   - Dropped unnecessary columns to streamline the dataset.  
+4. **Data Visualization**  
+   - Used Matplotlib & Seaborn to highlight churn drivers and patterns.  
 
 ---
 
-## Skills Demonstrated
-- **SQL**: Advanced querying and transformation techniques.  
-- **Data Cleaning**: Handling missing, inconsistent, and duplicate data.  
-- **Database Management**: Structuring columns, tables, and data types.  
-- **Problem-Solving**: Real-world data quality challenges.  
+## Skills Demonstrated  
+- **Python**: Data analysis & scripting  
+- **Pandas**: Data cleaning, manipulation, and aggregation  
+- **Matplotlib & Seaborn**: Data visualization  
+- **EDA**: Deriving insights from data-driven questions  
+- **Business Intelligence**: Turning data into actionable recommendations  
+- **GitHub**: Version control & documentation  
 
 ---
 
-## Results
-The cleaning process delivered a **fully transformed dataset**:  
-- All `PropertyAddress` nulls populated.  
-- Addresses neatly separated into **Street, City, State**.  
-- `SoldAsVacant` standardized to only **Yes/No**.  
-- Duplicate records eliminated.  
-- Redundant columns removed for efficiency.  
-
-The dataset is now **ready for analysis** and **business intelligence applications**.  
+## Results & Insights  
+- **Gender**: Has little to no effect on churn.  
+- **Senior Citizens**: Churn at a much higher rate compared to younger customers.  
+- **Family Status**: Customers without partners or dependents are significantly more likely to churn.  
+- **Key Services**: Lack of Online Security and Tech Support strongly correlates with higher churn rates.  
 
 ---
 
-## Business Recommendations
-With the clean dataset, businesses can now explore:  
-- **Market Trend Analysis** → Property value and sales trends over time.  
-- **Geospatial Analysis** → Map-based insights on property sales in high-growth areas.  
-- **Predictive Modeling** → Use in ML models to forecast housing prices.  
-- **Strategic Planning** → Guide investments, acquisitions, and pricing strategies.
+## Business Recommendations  
+1. **Target Senior Citizens**  
+   - Develop tailored retention programs and service bundles.  
+
+2. **Promote Key Services**  
+   - Encourage adoption of Online Security and Tech Support to improve loyalty.  
+
+3. **Focus on Single Customers**  
+   - Launch engagement campaigns for customers without partners or dependents.  
+
+4. **Optimize Retention Strategy**  
+   - Use churn predictions to proactively reach at-risk customers.
