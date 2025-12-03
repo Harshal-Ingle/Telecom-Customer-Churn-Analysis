@@ -1,5 +1,5 @@
 # Customer Churn Analysis  
-Improved Nashville housing data quality using SQL by fixing missing values, standardizing formats, and removing duplicates.
+
 ## Executive Summary  
 This project presents a comprehensive analysis of **customer churn for a telecom company**. The goal was to identify the key drivers of churn and segment customers for targeted retention campaigns. Using **Python** and popular data analysis libraries, the project uncovers insights into customer demographics, services, and contract types most susceptible to churning. These findings provide a **data-driven foundation** for strategies to reduce churn and improve customer retention.  
 
